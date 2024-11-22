@@ -34,3 +34,25 @@ exampleForm.addEventListener('submit', (event) => {
         formFeedback.textContent = "Invalid";
     }
 });
+
+// Focus and Blur Events
+const focusField = document.getElementById('focus-input');
+const focusFeedback = document.getElementById('focus-message');
+
+focusField.addEventListener('focus', () => {
+    focusFeedback.textContent = "you are typing";
+});
+
+focusField.addEventListener('blur', () => {
+    focusFeedback.textContent = "you left";
+});
+// Event Delegation
+const buttonWrapper = document.getElementById('button-container');
+const buttonFeedback = document.getElementById('delegation-message');
+
+buttonWrapper.addEventListener('click', (event) => {
+    if (event.target.tagName === 'BUTTON') {
+        const buttonText = event.target.textContent;
+        buttonFeedback.textContent = `You chose "${buttonText}".`;
+    }
+});
